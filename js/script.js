@@ -5,63 +5,56 @@ const menuOpenBtn = document.querySelector('.burger');
 const menuCloseBtn = document.querySelector('.menu-close');
 const menu = document.querySelector('#mobile-menu');
 const btnsModalOpen = document.querySelectorAll('button[data-modal-open]');
+const btnsModalClose = document.querySelectorAll('button[data-modal-btn="close"]');
 const modals = document.querySelectorAll('[data-modal]');
-
-let scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
-
-function checkWidthWindow() {
-  scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
-}
 
 menuOpenBtn.addEventListener('click', () => {
   toggleActiveMenu()
 });
-
 menuCloseBtn.addEventListener('click', () => {
   toggleActiveMenu()
 });
+btnsModalClose.forEach(btn => {
+  btn.addEventListener('click', () => {
+    closeModal()
+    toggleActiveOverlay('remove') 
+  })
+});
+btnsModalOpen.forEach(btn => {
+  btn.addEventListener('click', () => {
+    let dataAtr = btn.dataset.modalOpen; 
+    let modal = document.querySelector('[data-modal="'+dataAtr +'"]');
+    modal.classList.add('active')
+    toggleActiveOverlay('add') 
+  })
+});
 
+function closeModal() {
+  modals.forEach(modal => {
+    modal.classList.remove('active');
+  });
+}
 function toggleActiveMenu() {
   menu.classList.toggle('active');
   menuOpenBtn.classList.toggle('active');
-  toggleActiveOverlay('menu')
+  menu.classList.contains('active') ? toggleActiveOverlay('add') :  toggleActiveOverlay('remove')  
 }
-
 function toggleActiveOverlay(param) {
-  if (param === 'menu') {
-    if(menu.classList.contains('active')) {
-      overflay.classList.add('active');
-      body.classList.add('overflow-hidden');
-    } else {
-      overflay.classList.remove('active');
-      body.classList.remove('overflow-hidden');
-    }
-  } else if(param === 'modal'){
-    overflay.classList.toggle('active');
-    body.classList.toggle('overflow-hidden');
+  if (param === 'add') {
+    body.style.paddingRight = `${checkWidthWindow()}px`;
+    header.style.paddingRight = `${checkWidthWindow()}px`;
+    overflay.classList.add('active');
+    body.classList.add('overflow-hidden');
+  } else {
+    body.style.paddingRight = `0`;
+    header.style.paddingRight = `0`;
+    overflay.classList.remove('active');
+    body.classList.remove('overflow-hidden');
   }
 }
-
-modals.forEach(modal => {
-  const btnModalClose = modal.querySelector('button[data-modal-btn="close"]');
-  btnModalClose.addEventListener('click', () => {
-    modal.classList.remove('active');
-    toggleActiveOverlay('modal');
-    body.style.paddingRight = 0;
-    header.style.paddingRight = 0;
-  })
-});
-
-btnsModalOpen.forEach(btn => {
-  btn.addEventListener('click', () => {
-    checkWidthWindow()
-    let dataAtr = btn.dataset.modalOpen; let modal = document.querySelector('[data-modal="'+dataAtr +'"]');
-    body.style.paddingRight = `${scrollbarWidth}px`;
-    header.style.paddingRight = `${scrollbarWidth}px`;
-    modal.classList.add('active')
-    toggleActiveOverlay('modal') 
-  })
-});
+function checkWidthWindow() {
+  return window.innerWidth - document.documentElement.clientWidth;
+}
 
 // ymap
 let mapBtn = document.getElementById('mapBtn');
