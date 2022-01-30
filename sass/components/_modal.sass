@@ -1,0 +1,89 @@
+.modal
+  &-wrapper
+    position: fixed
+    top: 50%
+    left: 50%
+    transform: translate(-50%, -50%)
+    max-width: calc( 100% - 20px )
+    max-height: calc( 100% - 20px )
+    z-index: 11
+    transition: 0.1s
+    visibility: hidden
+    opacity: 0
+    &.active
+      opacity: 1
+      visibility: visible
+      transition-duration: 0.8s
+      transition-delay: 0.3s 
+
+  min-width: 200px
+  min-width: 200px
+  padding: 1.5vw 1.7vw
+  background: cl(white)
+  box-shadow: 0 0 5px cl(black, 0.2)
+  
+  &-head
+    display: flex
+    justify-content: space-between
+    position: relative
+    padding-bottom: 0.5vw
+    &__title
+      font-size: 2vw
+      text-transform: uppercase
+      padding-right: 20px
+  &-content
+    font-size: 1vw
+    padding: 0.5vw 0
+    min-height: 5vw
+    max-height: 80vh
+  &-bottom
+    padding-top: 0.5vw
+    position: relative
+    &__btn
+      font-size: 1vw
+      padding: 0.8vw
+      text-transform: uppercase
+  &__btn_close
+    font-size: 1vw
+    position: absolute
+    right: 0.5vw
+    top: 0.5vw
+    width: 1.2vw
+    text-align: center
+    +hover 
+      color: cl(orange)
+
+@media (max-width: 992px) 
+
+  .modal
+    padding: 16px 20px
+    &-head
+      padding-bottom: 10px
+      &__title
+        font-size: 20px
+    &-content
+      font-size: 16px
+      padding: 10px 0
+      min-height: 5vw
+      max-height: 80vh
+    &-bottom
+      padding-top: 10px
+      &__btn
+        font-size: 14px
+        padding: 10px
+        border-radius: 3px
+    &__btn_close
+      font-size: 18px
+      right: 10px
+      top: 10px
+      width: 20px
+
+@media (max-width: 640px) 
+  .modal
+    
+    &-wrapper
+      width: 100%
+      max-width: calc( 100% - 40px )
+    &-head
+      &__title
+        font-size: 16px

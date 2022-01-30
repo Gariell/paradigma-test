@@ -1,0 +1,229 @@
+.hero
+  padding: 14.5vw 0 8vw
+  max-width: 46vw
+  display: flex
+  flex-wrap: wrap
+  &-wrapper
+    background-image: url(../img/bg.jpg)
+    background-size: cover
+    background-repeat: no-repeat
+    background-position: center center
+    border-radius: 0 0 8vw 8vw
+    overflow: hidden
+  &-image
+  &__title
+    width: 100%
+    margin-bottom: 3.8vw
+    font-weight: normal
+    font-size: 3.1vw
+    line-height: 110%
+  &-features
+    display: flex
+    justify-content: space-between
+    width: 100%
+    margin-bottom: 3.4vw
+    margin-left: 1vw
+    &__item
+      position: relative
+      display: flex
+      font-size: 1vw
+      & span 
+        padding-right: 1vw
+        margin-top: -1%
+        font-size: 360%
+        font-weight: 900
+      & p 
+        line-height: 120%
+      &:nth-child(1)
+        width: 37%
+      &:nth-child(2)
+        width: 24%
+      &:nth-child(3)
+        width: 24%
+      &::after
+        content: ""
+        position: absolute
+        top: 0
+        left: 0
+        transform: translateX(-100%) rotate(-45deg)
+        height: 0.3vw
+        width: 1.5vw
+        background: cl(orange)
+        
+  &-checkprice
+    width: fit-content
+    padding: 0 1vw
+    &__title
+      font-size: 1vw
+      margin-bottom: 1.5vw
+      line-height: 140%
+      & span
+        background: #fff
+        font-weight: bold
+        padding: 0 0.3vw 0.2vw
+        border-radius: 0.5vw
+    &__btn
+      display: flex
+      justify-content: center
+      align-items: center
+      width: calc( 100% + 2vw)
+      margin-left: -1vw
+      padding: 1vw 1.4vw
+      height: 5.2vw
+      border-radius: 0.3vw
+      color: #fff
+      font-size: 1vw
+      text-transform: uppercase
+      text-align: left
+      background: linear-gradient(180deg, cl(orange) 0%, cl(red) 100%) 
+      background: -ms-linear-gradient(top,  #fe724f,  #fe5851)
+      +hover
+        background: linear-gradient(160deg, cl(orange) 0%, cl(red) 100%)
+      & img
+        width: auto
+        height: 70%
+        margin-right: 1vw
+
+  &-licenses
+    width: 45%
+    padding-left: 2%
+    margin-left: auto
+    text-align: center
+    font-size: 0.9vw
+    margin-top: auto
+    &__title
+      margin-bottom: 1vw
+      font-weight: bold
+    & .licenses
+      &-slider
+        width: 100%
+        &-wrapper
+          padding: 0 2.5vw
+          position: relative
+      &-item
+        height: 6vw
+        +hover
+          opacity: 0.7
+        & img 
+          height: 100%
+          width: 100%
+          object-fit: contain
+        &s
+    & .slider-nav
+      color: cl(black)
+      +hover
+        &::after
+          color: cl(orange)
+      &::after
+        font-weight: bold
+        font-size: 1vw
+      &:nth-child(3)
+        transform: translateX(50%)
+      &:nth-child(2)
+        transform: translateX(-50%)
+        
+
+
+@media (max-width: 992px)
+  .hero
+    padding: 160px 0 100px
+    max-width: 500px
+    &__title
+      font-size: 26px
+      margin-bottom: 40px
+    &-features
+      margin-bottom: 30px
+      margin-left: 12px
+      &__item
+        font-size: 12px
+        & span 
+          font-size: 300%
+        &::after
+          width: 12px
+          height: 2px
+    &-checkprice
+      padding: 0 10px
+      &__title
+        font-size: 12px
+        margin-bottom: 10px
+        & span
+      &__btn
+        font-size: 12px
+        height: auto
+        padding: 10px 12px
+        width: calc( 100% + 20px )
+        margin-left: -10px
+        border-radius: 3px
+        & img
+          height: 22px
+    &-licenses
+      &__title
+        font-size: 12px
+        margin-bottom: 10px
+        &-item
+          height: 50px
+          width: auto
+
+@media (max-width: 780px)
+  .hero
+    max-width: 400px
+    &-checkprice
+      &__title
+        font-size: 12px
+      &__btn
+        margin-bottom: 30px
+        & img
+    &-licenses
+      margin-left: 0
+      padding: 0
+      max-width: 300px
+      width: 100%
+      & .licenses
+        &-slider
+          &-wrapper
+            padding: 0
+        &-item
+          height: auto
+          width: 100%
+          max-width: 160px
+          & img 
+          &s
+      & .slider-nav
+        &::after
+          font-size: 14px
+        &:nth-child(3)
+          right: -10px
+          transform: translateX(50%)
+        &:nth-child(2)
+          left: -10px
+          transform: translateX(-50%)
+
+@media (max-width: 480px)
+  .hero
+    padding: 160px 0  100px
+    &-features
+      flex-direction: column
+      margin-left: 0
+      margin-bottom: 20px
+      &__item
+        width: auto !important
+        margin-bottom: 20px
+        font-size: 14px
+        & span
+          font-size: 200%
+    &-checkprice
+      padding: 0
+      width: 100%
+      &__title
+        margin-bottom: 20px
+      &__btn
+        margin-bottom: 40px
+        margin-left: 0
+        width: 100%
+        & img
+    &-licenses
+      text-align: left
+
+@media (max-width: 340px)
+  .hero
+    padding: 100px 0 100px

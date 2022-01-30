@@ -1,0 +1,190 @@
+.header
+  display: flex
+  flex-wrap: wrap
+  align-items: center
+  justify-content: space-between
+  padding: 2vw 0
+  
+  
+  &-wrapper
+    position: absolute
+    top: 0
+    left: 50%
+    transform: translateX(-50%)
+    width: 100% 
+    z-index: 9
+  &-logo
+    display: flex
+    align-items: center
+    &__img
+      margin-right: 1.8vw
+      width: 9.5vw
+      & img 
+        width: 100%
+      +hover
+        opacity: 0.9
+    &__text
+      font-size: 1vw
+
+  &-address
+    display: flex
+    align-items: center
+    padding: 0
+    +hover
+      color: cl(orange)
+      & img
+        filter: drop-shadow(0 0 2px cl(orange, 0.4))
+    &__img
+      margin-right: 1vw
+      width: 3.7vw
+    &__text
+      font-size: 0.9vw
+      text-align-last: left
+  &__btn
+    &_main
+      font-size: 0.9vw
+      padding: 1.3vw 1.4vw
+      border-radius: 0.2vw
+    &_burger
+      order: 4 
+      margin-left: 16px
+      
+  &-contacts
+    display: flex
+    flex-direction: column
+    &__phone
+      position: relative
+      padding-left: 1.4vw
+      font-weight: bold
+      font-size: 1.2vw
+      +hover
+        color: cl(orange)
+        &::after
+          filter: drop-shadow(0 0 1px cl(orange, 0.5))
+      &::after
+        content: ""
+        width: 1vw
+        height: 1vw
+        position: absolute
+        left: 0
+        top: 50%
+        transform: translateY(-50%)
+        background-image: url('../img/icons/phone.png')
+        background-repeat: no-repeat
+        background-size: 100% 100%
+    &-soc
+      display: flex
+      justify-content: center
+      column-gap: 0.3vw
+      padding-top: 0.5vw
+      &__item
+        height: 2.7vw
+        width: 2.7vw
+        +hover
+          opacity: 0.8
+
+  &-menu
+    width: 100%
+    margin-top: 2vw
+    font-size: 0.9vw
+    font-weight: bold
+    text-transform: uppercase
+    & ul 
+      display: flex
+      justify-content: space-between
+    &__item
+      +hover
+        & a
+          color: cl(orange)
+
+@media (max-width: 992px)
+  .header
+    padding: 20px 0
+    &-logo
+      &__img
+        width: 100px
+        & img 
+      &__text
+        font-size: 10px
+    &-address
+      &__img
+        width: 40px
+      &__text
+        font-size: 10px
+    &__btn_main
+      font-size: 10px
+      padding: 12px 16px
+      border-radius: 4px
+    &-contacts
+      &__phone
+        font-size: 14px
+        padding-left: 14px
+        &::after
+          width: 10px
+          height: 10px
+      &-soc
+        column-gap: 6px
+        padding-top: 8px
+        &__item
+          width: 25px
+          height: 25px
+    &-menu
+      margin-top: 20px
+      font-size: 10px
+
+
+@media (max-width: 740px)
+  .header
+    justify-content: flex-start
+    &-logo
+      &__img
+        margin-right: 20px
+      &__text
+        display: none
+    &-address
+      display: none
+    &__btn_main
+      order: 4
+    &-contacts
+      margin-right: auto
+      order: 2
+      align-items: flex-start
+      &-soc
+        padding: 5px 0 0 0
+    &-menu
+      display: none
+
+@media (max-width: 620px)
+  .header
+    padding: 10px 0
+    &::before
+      content: ''
+      width: 100%
+      order: 2
+      margin-bottom: 10px
+    &-logo
+      order: 0
+    &__btn
+      &_main
+        order: 3
+        padding: 12px 16px
+      &_burger
+        order: 1
+        margin-left: auto
+    &-contacts
+      margin-left: auto
+      margin-right: 0
+      order: 4
+      flex-direction: column
+      align-items: flex-end
+      &__phone
+        margin-right: auto
+      &-soc
+        padding-top: 5px
+
+@media (max-width: 340px)
+  .header
+    &__btn_main
+      display: none
+    &-contacts
+      display: none

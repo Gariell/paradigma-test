@@ -1,0 +1,82 @@
+
+.burger 
+  display: none  
+  justify-content: space-between
+  flex-direction: column
+  height: 30px
+  width: 100%
+  max-width: 38px
+  padding: 0
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0)
+  opacity: 0.8
+  & span
+    width: 100%
+    height: 2px
+    background: cl(black)
+    transition: 0.2s
+    &:nth-child(2)
+      transition-duration: 0.2s
+      transition-delay: 0.1s
+  &.active
+    position: relative
+    opacity: 1
+    & span
+      transition: 0.2s
+      
+      &:nth-child(1)
+        transform: rotate(45deg)
+        position: absolute
+        top: calc( 50% - 1px )
+      &:nth-child(2)
+        background: transparent
+        transition: 0s
+      &:nth-child(3)
+        position: absolute
+        top: calc( 50% - 1px )
+        transform: rotate(-45deg)
+
+.mobile-menu
+  display: flex
+  flex-direction: column
+  font-size: 16px
+  text-transform: uppercase
+  &-wrapper
+    z-index: 11
+    display: flex
+    flex-direction: column
+    height: 100vh
+    width: 100vw
+    max-width: 240px
+    position: absolute
+    top: 0
+    left: 0
+    padding: 10px 20px
+    visibility: hidden
+    background: #fff
+    transition: 0.5s
+    transform: translateX(-100%)
+    box-shadow: 0 0 5px cl(black, 0.1)
+    &.active
+      visibility: visible
+      transform: translateX(0%)
+  &-head
+    position: relative
+    width: 100%
+    margin-bottom: 7vh
+  &__logo
+    display: block
+    max-width: 100px
+  &__btn_close
+    position: absolute
+    top: 0px
+    right: 0px
+    font-size: 30px
+    color: cl(black, 0.8)
+  &__item
+    margin-bottom: 3vh
+  
+
+@media (max-width: 740px)
+  .burger 
+    display: flex
+    transition: 0.3s

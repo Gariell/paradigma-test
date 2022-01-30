@@ -1,0 +1,119 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  @include mainFont;
+  overflow-x: hidden;
+}
+
+h1, h2, h3,h4,h5,h6,p, a{
+  margin: 0;
+  line-height: 100%;
+  text-decoration: none;
+}
+
+a,a:visited,a:focus {
+  color: cl(black);
+}
+
+button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+strong {
+  font-weight: 700;
+}
+
+img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+.container {
+  position: relative;
+  width: 100%;
+  padding: 0 9vw;
+  margin: 0 auto;
+  color: cl(black);
+}
+
+.overflow {
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  background: cl(white, 0);
+  width: 100vw;
+  height: 100vh;
+  transition: 0.3s;
+  visibility: hidden;
+  transform: translateX(-100%);
+  &.active {
+    background: cl(white, 0.7);
+    visibility: visible;
+    transform: translateX(0%);
+  }
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
+.main-btn {
+  font-weight: bold;
+  background: cl(dark-blue);
+  background: -ms-linear-gradient(top,  #313d4b,  #313d4b);
+  color: #fff;
+  border-radius: 5px;
+  padding: 8px 14px;
+  font-size: 14px;
+  @include hover {
+    background: cl(dark-blue, 0.9);
+    box-shadow: 0 0 5px cl(black, 0.1);
+  }
+}
+
+.animation-highlight {
+  position: relative;
+  overflow: hidden;
+}
+.animation-highlight::after {
+  content: "";
+  height: 155px;
+  width: 50px;
+  position: absolute;
+  left: -75px;
+  top: -50px;
+  transform: rotate(35deg);
+  z-index: 8;
+  opacity: .2;
+  background: #fff;
+  animation: highlight 6s ease-in-out 2s infinite;
+}
+
+@keyframes highlight {
+  0% {
+    left: -75px;
+  }
+  20% {
+    left: 120%;
+  }
+  100% {
+    left: 120%;
+  }
+}
+
+
+@media (max-width: 992px) {
+  .container {
+    padding: 0 20px;
+  }
+}

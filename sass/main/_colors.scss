@@ -1,0 +1,43 @@
+$colors_theme : (
+  // "primary"   : "pink",
+  // "secondary" : "blue"
+);
+
+$colors : (
+  "black" : #282728,
+  "white" : #FFFFFF,
+  "red" : #fe5851,
+  "orange" : #fe724f,
+  "dark-blue" : #313d4b
+);
+
+
+
+
+@function HexToRGB($hex) {
+  @return red($hex), green($hex), blue($hex);
+}
+
+@function cl($name, $opacity: false) {
+  @if $opacity {
+    @return rgba(var(--color-#{unquote($name)}--rgb), $opacity);
+  } @else {
+    @return var(--color-#{unquote($name)});
+  }
+}
+
+:root{
+  @if $colors {
+    @if $colors_theme {
+      @each $key, $value in $colors_theme {
+        --color-#{$key} : var(--color-#{$value});
+        --color-#{$key}--rgb : var(--color-#{$value}--rgb);
+      }
+    }
+
+    @each $key, $value in $colors {
+      --color-#{$key} : #{$value};
+      --color-#{$key}--rgb : #{HexToRGB($value)};
+    }
+  }
+}

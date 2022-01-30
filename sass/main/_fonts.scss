@@ -1,0 +1,36 @@
+@font-face {
+  font-family: 'UniNeue';
+  src: url('../fonts/UniNeueBlack.woff2') format('woff2'),
+      url('../fonts/UniNeueBlack.eot?#iefix') format('embedded-opentype'),
+      url('../fonts/UniNeueBlack.eot'),
+      url('../fonts/UniNeueBlack.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'UniNeue';
+  src: url('../fonts/UniNeueBold.woff2') format('woff2'),
+      url('../fonts/UniNeueBold.eot'),
+      url('../fonts/UniNeueBold.eot?#iefix') format('embedded-opentype'),
+      url('../fonts/UniNeueBold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'UniNeue';
+  src: url('../fonts/UniNeueRegular.woff2') format('woff2'), 
+      url('../fonts/UniNeueRegular.eot'),
+      url('../fonts/UniNeueRegular.eot?#iefix') format('embedded-opentype'),
+      url('../fonts/UniNeueRegular.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@mixin mainFont {
+  font-family: 'UniNeue', -apple-system, BlinkMacSystemFont, 'Open Sans', 'Helvetica Neue', sans-serif
+}
